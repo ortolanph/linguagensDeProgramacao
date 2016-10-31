@@ -1,0 +1,7 @@
+.not_executed {
+    color: #f00;
+}
+
+.executed {
+    color: #0f0;
+}
