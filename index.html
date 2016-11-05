@@ -5,18 +5,66 @@
     <title>Linguagens de Programação</title>
     <meta charset="utf-8" />
     <link href="resources/bootstrap.min.css" rel="stylesheet" />
-    <link href="resources/linguagens.css" rel="stylesheet" />
+    <link href="core/linguagens.css" rel="stylesheet" />
 </head>
 
-<body> <!--  ng-controller="mainController" -->
+<body ng-controller="mainController">
     <!--<h1>{{title}}</h1>-->
-    <h1>Linguagens de Programação</h1>
+    <h1>{{title}}</h1>
     <uib-accordion close-others="true">
         <uib-accordion-group heading="Condicional Simples">
-            content
+          <p>If representa um desvio no programa quando uma condição é satisfeita. Apresenta o seguinte formato:</p>
+<pre>
+instrução
+
+if(condição)
+{
+  instrução
+}
+
+instrução
+  </pre>
+            <p>No exemplo abaixo, a função executarCódigo() sempre é executada.</p>
+<div ng-controller="simpleConditionController">
+  <pre>
+  int x = <input type="text" size="3" ng-model="varx" ng-change="check();" />;
+
+  if(x == 5) {
+    <span class="{{result}}">executarCodigo();</span>
+  }
+  </pre>
+</div>
         </uib-accordion-group>
         <uib-accordion-group heading="Else">
-            content
+          <p>Uma instrução else sempre é acompanhada de uma instrução if. Quando a condição do bloco if não é satisfeita, são executadas as instruções do bloco else. Apresenta o seguinte formato:</p>
+<pre>
+instrução
+
+if(condição)
+{
+    instrução
+}
+else
+{
+    instrução
+}
+
+instrução
+</pre>
+          <p>No exemplo abaixo, a função executarOutroCódigo() é executada, pois a condição do bloco if não é satisfeita.</p>
+<div ng-controller="elseConditionController">
+<pre>
+int x = <input type="text" size="3" ng-model="varx" ng-change="check();">;
+
+if(x > 5) {
+    <span class="{{result.success}}">executarCodigo();</span>
+}
+else
+{
+    <span class="{{result.fail}}">executarOutroCodigo();</span>
+}
+</pre>
+</div>
         </uib-accordion-group>
     </uib-accordion>
 
@@ -27,8 +75,10 @@
     <!-- endinject -->
 
     <!-- app:js -->
-    <script src="resources/app.js"></script>
-    <script src="resources/controllers.js"></script>
+    <script src="core/app.js"></script>
+    <script src="core/main.js"></script>
+    <script src="core/simplecondition.js"></script>
+    <script src="core/elsecondition.js"></script>
     <!-- endinject -->
 </body>
 
