@@ -1,4 +1,7 @@
-angular.module('LearningApp.simplecondition').controller('simpleConditionController', ['$scope', ($scope) => {
+angular.module('LearningApp.controllers')
+  .controller('simpleConditionController', simpleConditionController); 
+  
+function simpleConditionController(scope){
   $scope.varx = 6;
   $scope.result = 'not_executed';
   
@@ -11,4 +14,4 @@ angular.module('LearningApp.simplecondition').controller('simpleConditionControl
       $scope.result = 'not_executed';
     }
   };
-}]);
+}

@@ -1,4 +1,7 @@
-angular.module('LearningApp.elsecondition').controller('elseConditionController', ['$scope', ($scope) => {
+angular.module('LearningApp.controllers')
+  .controller('elseConditionController', elseConditionController)
+
+function elseConditionController($scope) {
   $scope.varx = 6;
   $scope.result = {
     success: "not_executed",
@@ -16,4 +19,4 @@ angular.module('LearningApp.elsecondition').controller('elseConditionController'
       $scope.result.fail = 'executed';
     }
   };
-}]);
+}

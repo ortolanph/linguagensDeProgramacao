@@ -1,13 +1,9 @@
+angular.module('LearningApp.controllers', []);
+
 const modules = [
     'ui.bootstrap',
     'ngAnimate',
-    'LearningApp.main',
-    'LearningApp.simplecondition',
-    'LearningApp.elsecondition'
+    'LearningApp.controllers'
 ];
 
 const app = angular.module('LearningApp', modules);
-
-angular.module('LearningApp.main', []);
-angular.module('LearningApp.simplecondition', []);
-angular.module('LearningApp.elsecondition', []);

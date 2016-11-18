@@ -1,4 +1,7 @@
-angular.module('LearningApp.main').controller('mainController', ($scope) => {
+angular.module('LearningApp.controllers')
+  .controller('mainController', mainController);
+  
+function mainController($scope) {
   $scope.title = "Linguagens de Programação";
-});
+}
   
