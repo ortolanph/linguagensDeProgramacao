@@ -9,64 +9,39 @@
 </head>
 
 <body ng-controller="mainController">
-    <!--<h1>{{title}}</h1>-->
-    <h1>{{title}}</h1>
-    <uib-accordion close-others="true">
-        <uib-accordion-group heading="Condicional Simples">
-          <p>If representa um desvio no programa quando uma condição é satisfeita. Apresenta o seguinte formato:</p>
-<pre>
-instrução
-
-if(condição)
-{
-  instrução
-}
-
-instrução
-  </pre>
-            <p>No exemplo abaixo, a função executarCódigo() sempre é executada.</p>
-<div ng-controller="simpleConditionController">
-  <pre>
-  int x = <input type="text" size="3" ng-model="varx" ng-change="check();" />;
-
-  if(x == 5) {
-    <span class="{{result}}">executarCodigo();</span>
-  }
-  </pre>
-</div>
-        </uib-accordion-group>
-        <uib-accordion-group heading="Else">
-          <p>Uma instrução else sempre é acompanhada de uma instrução if. Quando a condição do bloco if não é satisfeita, são executadas as instruções do bloco else. Apresenta o seguinte formato:</p>
-<pre>
-instrução
-
-if(condição)
-{
-    instrução
-}
-else
-{
-    instrução
-}
-
-instrução
-</pre>
-          <p>No exemplo abaixo, a função executarOutroCódigo() é executada, pois a condição do bloco if não é satisfeita.</p>
-<div ng-controller="elseConditionController">
-<pre>
-int x = <input type="text" size="3" ng-model="varx" ng-change="check();">;
-
-if(x > 5) {
-    <span class="{{result.success}}">executarCodigo();</span>
-}
-else
-{
-    <span class="{{result.fail}}">executarOutroCodigo();</span>
-}
-</pre>
-</div>
-        </uib-accordion-group>
-    </uib-accordion>
+    <div class="container">
+        <h1>{{title}}</h1>
+        <uib-accordion close-others="true">
+            <uib-accordion-group heading="Condicional Simples">
+                <p>If representa um desvio no programa quando uma condição é satisfeita. Apresenta o seguinte formato:</p>
+                <pre>
+                    instrução if(condição) { instrução } instrução
+                </pre>
+                <p>No exemplo abaixo, a função executarCódigo() sempre é executada.</p>
+                <div ng-controller="simpleConditionController">
+                    <pre>
+                        int x = <input type="text" size="3" ng-model="varx" ng-change="check();" />; if(x == 5) {
+                        <span class="{{result}}">executarCodigo();</span> }
+                    </pre>
+                </div>
+            </uib-accordion-group>
+            <uib-accordion-group heading="Else">
+                <p>Uma instrução else sempre é acompanhada de uma instrução if. Quando a condição do bloco if não é satisfeita,
+                    são executadas as instruções do bloco else. Apresenta o seguinte formato:</p>
+                <pre>
+                    instrução if(condição) { instrução } else { instrução } instrução
+                </pre>
+                <p>No exemplo abaixo, a função executarOutroCódigo() é executada, pois a condição do bloco if não é satisfeita.</p>
+                <div ng-controller="elseConditionController">
+                    <pre>
+                        int x = <input type="text" size="3" ng-model="varx" ng-change="check();">; if(x > 5) {
+                        <span class="{{result.success}}">executarCodigo();</span> } else {
+                        <span class="{{result.fail}}">executarOutroCodigo();</span> }
+                    </pre>
+                </div>
+            </uib-accordion-group>
+        </uib-accordion>
+    </div>
 
     <!-- vendors:js -->
     <script src="resources/angular.min.js"></script>
