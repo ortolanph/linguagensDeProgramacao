@@ -1,7 +1,7 @@
 angular.module('LearningApp.controllers')
   .controller('simpleConditionController', simpleConditionController); 
   
-function simpleConditionController(scope){
+function simpleConditionController($scope){
   $scope.varx = 6;
   $scope.result = 'not_executed';
   
