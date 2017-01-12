@@ -14,4 +14,6 @@ function simpleConditionController($scope){
       $scope.result = 'not_executed';
     }
   };
+
+  $scope.check();
 }

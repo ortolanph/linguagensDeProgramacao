@@ -11,60 +11,252 @@
 <body ng-controller="mainController">
     <div class="container">
         <h1>{{title}}</h1>
+        <h2>Condicionais</h2>
         <uib-accordion close-others="true">
             <uib-accordion-group heading="Condicional Simples">
-            <p>If representa um desvio no programa quando uma condição é satisfeita. Apresenta o seguinte formato:</p>
+                <p><code>If</code> representa um desvio no programa quando uma condição é satisfeita. Apresenta o seguinte formato:</p>
 <pre>
 instrução
 
-if(condição)
-{
+if(condição) {
   instrução
 }
 
 instrução
 </pre>
-            <p>No exemplo abaixo, a função executarCódigo() sempre é executada.</p>
+            <p>No exemplo abaixo, a função <code>executarCódigo()</code> sempre é executada quando a variável <code>x</code> é igual à 5. Modifique o valor para verificar quando a função será ou não chamada.</p>
 <div ng-controller="simpleConditionController">
-  <pre>
-  int x = <input type="text" size="3" ng-model="varx" ng-change="check();" />;
+<pre>
+int x = <input type="text" size="3" ng-model="varx" ng-change="check();" />;
 
-  if(x == 5) {
+if(x == 5) {
     <span class="{{result}}">executarCodigo();</span>
-  }
-  </pre>
+}
+</pre>
 </div>
             </uib-accordion-group>
             <uib-accordion-group heading="Else">
-            <p>Uma instrução else sempre é acompanhada de uma instrução if. Quando a condição do bloco if não é satisfeita, são executadas as instruções do bloco else. Apresenta o seguinte formato:</p>
+                <p>Uma instrução <code>else</code> sempre é acompanhada de uma instrução <code>if</code>. Quando a condição do bloco <code>if</code> não é satisfeita, são executadas as instruções do bloco <code>else</code>. Apresenta o seguinte formato:</p>
 <pre>
 instrução
 
-if(condição)
-{
+if(condição) {
     instrução
-}
-else
-{
+} else {
     instrução
 }
 
 instrução
 </pre>
-             <p>No exemplo abaixo, a função executarOutroCódigo() é executada, pois a condição do bloco if não é satisfeita.</p>
+             <p>Teste no exemplo interativo abaixo, teste a execução da função <code>executarOutroCódigo()</code>, lembrando que a condição do bloco <code>if</code> não pode ser satisfeita.</p>
 <div ng-controller="elseConditionController">
 <pre>
 int x = <input type="text" size="3" ng-model="varx" ng-change="check();">;
 
 if(x > 5) {
     <span class="{{result.success}}">executarCodigo();</span>
-}
-else
-{
+} else {
     <span class="{{result.fail}}">executarOutroCodigo();</span>
 }
 </pre>
 </div>
+            </uib-accordion-group>
+            <uib-accordion-group heading="Condições Aninhadas">
+                <p>Pode ocorrer um aninhamento de condições. Nesse caso uma instrução if segue logo após à uma estrutura else. Apresenta o seguinte formato:</p>
+<pre>
+instrução
+
+if(condição) {
+	instrução
+} else if {
+      instrução
+} else {
+      instrução
+}
+
+instrução
+</pre>
+                <p>No exemplo abaixo, a função executar() é executada, pois a condição do primeiro bloco if não é satisfeita.</p>
+<pre>
+int x = 2;
+
+if(x > 5) {
+	executarCodigo();
+}
+else if(x ==2) {
+      executar();
+}
+else {
+      executarOutroCódigo();
+}
+</pre>
+	            <p>Existe também outra forma de aninhar ifs:</p>
+<pre>
+int x = 2;
+
+if(x > 5) {
+   executarCodigo();
+} else {
+   if(x == 2) {
+       executar();
+   } else {
+       executarOutroCodigo();
+   }
+}
+</pre>
+                <p>No exemplo anterior, aninha-se um if dentro do else sem a necessidade de um bloco else-if.</p>
+            </uib-accordion-group>
+            <uib-accordion-group heading="Switch">
+                <p>Um bloco switch é utilizado para concentrar várias instruções if. Somente tipos primitivos, Strings e enumeradores pode ser utilizados.</p>
+<pre>
+switch(variavel) {
+    case condicao1:
+        [break;]
+    case condicao2:
+        [break;]
+    case condicao3:
+        [break;]
+    case condicao4:
+        [break;]
+    [default:]
+}
+</pre>
+	            <p>A instrução break para a execução do bloco switch e sai para o fluxo normal do programa. A instrução default, indica que nenhuma das condições foram satisfeitas. Se não houver a instrução break, todas os blocos de códigos das condições subsequentes serão executadas, inclusive o bloco da condição default se houver. O exemplo abaixo mostra um swicth para dia da semana.</p>
+<pre>
+String diaDaSemana = "Domingo";
+
+switch (diaDaSemana) {
+    case "Domingo":
+        System.out.println("Você informou o dia 1");
+        break;
+    case "Segunda":
+        System.out.println("Você informou o dia 2");
+        break;
+    case "Terça":
+        System.out.println("Você informou o dia 3");
+        break;
+    case "Quarta":
+        System.out.println("Você informou o dia 4");
+        break;
+    case "Quinta":
+        System.out.println("Você informou o dia 5");
+        break;
+    case "Sexta":
+        System.out.println("Você informou o dia 6");
+        break;
+    case "Sábado":
+        System.out.println("Você informou o dia 7");
+        break;
+    default:
+        System.out.println("O dia informado não existe!");
+        break;
+    }
+}
+</pre>
+            </uib-accordion-group>
+            <uib-accordion-group heading="Operador Ternário">
+                <p>O operador ternário é uma maneira mais rápida de executar uma instrução if. É utilizado mais comumente em retornos de funções.</p>
+<pre>
+(codição) ? retorno-verdade : retorno-falso;
+</pre>
+                <p>O exemplo a seguir retorna um String conforme a condição ilustrada por x==0.</p>
+<pre>
+return (x==0) ? “Encontrou” : “Não encontrou”;
+</pre>
+                <p>Ao omitir o retorno, o operador ternário sempre retornará um booleano.</p>
+<pre>
+return (x==0);
+</pre>
+            </uib-accordion-group>
+        </uib-accordion>
+        <h2>Laços de Repetição</h2>
+        <uib-accordion>
+            <uib-accordion-group heading="For">
+                <p>O comando for é um laço de repetição simples que exige 3 parâmetros:</p>
+                <ul>
+                    <li>Inicialização de uma variável</li>
+                    <li>Condicional</li>
+                    <li>Incrementador</li>
+                </ul>
+	            <p>Estrutura:</p>
+<pre>
+for(inicializacao ; condição ; incrementador ) {
+    instrução;
+}
+</pre>
+                <p>O exemplo abaixo executa 1000 vezes um mesmo comando.</p>
+<pre>
+for(int i = 0; i < 1000 ; i++) {
+    System.out.println(i);
+}
+</pre>
+                <p>O exemplo abaixo executa 500 vezes um mesmo comando, pois o incremental pula de dois em dois.</p>
+<pre>
+for(int i = 0; i < 1000 ; i+=2) {
+    System.out.println(i);
+}
+</pre>
+                <p>O exemplo abaixo executa 1000 de trás para frente.</p>
+<pre>
+for(int i = 1000; i >=0 ; i--) {
+    System.out.println(i);
+}
+</pre>
+            </uib-accordion-group>
+            <uib-accordion-group heading="While">
+                <p>O comando while executará as instruções em seu bloco até a condição ser satisfeita. A condição deve ser controlada dentro do corpo do bloco while. Se a condição não for satisfeita, a condição while nem é executada.</p>
+<pre>
+while(condicao) {
+     instrução;
+}
+</pre>
+	            <p>O exemplo a seguir é um acumulador que soma todos os números de 1 a 100.</p>
+<pre>
+int soma = 0;
+int contador = 1;
+
+while(contador != 100) {
+    soma += contador;
+    contador++;
+}
+
+System.out.println(soma);
+</pre>
+                <div class="alert alert-danger">
+                    <p><strong>Cuidado!</strong> O exemplo abaixo deve ser evitado, pois se trata de um <strong>loop infinito</strong>!</p>
+                    <br/>
+<pre>
+while(true) {
+    System.out.println(“Nunca mais vou sair daqui!”);
+    System.out.println(“Tem que dar um jeito de abortar o programa.”);
+}
+</pre>
+                </div>
+            </uib-accordion-group>
+            <uib-accordion-group heading="Do-While">
+                <p>A instrução do-while é similar à instrução while. A diferença é que as instruções dentro deste bloco de repetição são executadas pelo menos uma vez mesmo que a condição não seja satisfeita.</p>
+<pre>
+do {
+     instrução;
+} while(condicao);
+</pre>
+                <p>No exemplo a seguir as instruções do bloco do-while são executadas pelo menos uma vez e o fluxo segue seu caminho normal:</p>
+<pre>
+int i = 5;
+
+do {
+     System.out.println(i);
+} while(i > 5);
+</pre>
+                <p>No exemplo a seguir as instruções do bloco do-while são executadas até o final:</p>
+<pre>
+int i = 5;
+
+do {
+     System.out.println(i);
+     i--;
+} while(i > 0);
+</pre>
             </uib-accordion-group>
         </uib-accordion>
     </div>
